@@ -1,0 +1,8 @@
+pytorch-lightning==2.1.2
+smplx==0.1.28
+numpy==1.23.2
+chumpy==0.70
+git+https://github.com/openai/CLIP.git
+tensorboard==2.15.1
+tqdm==4.66.1
+transformers==4.28.0
