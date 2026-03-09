@@ -17,7 +17,6 @@ weights/
 *.pkl
 test_files/
 
-*.md
 assets/
 vis/
 .vscode/
