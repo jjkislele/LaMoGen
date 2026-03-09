@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference">
+  <meta name="description" content="LaMoGen leverages symbolic motion representation to enable LLMs to generate interpretable, linguistically aligned human motions from text.">
+  <meta name="keywords" content="Symbolic Reasoning, Labanotation, Text-to-Motion Generation, LLM-based Planning">
+  <meta name="author" content="Junkun Jiang, Ho Yin Au, Jingyu Xiang, Jie Chen">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HKBU Motion Capture and Visualization Laboratory">
+  <meta property="og:title" content="LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference">
+  <meta property="og:description" content="LaMoGen leverages symbolic motion representation to enable LLMs to generate interpretable, linguistically aligned human motions from text.">
+  <meta property="og:url" content="https://https://jjkislele.github.io/pages/projects/lamogen_git/">
+  <!-- <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png"> -->
+  <!-- <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630"> -->
+  <meta property="og:image:alt" content="LaMoGen">
+  <meta property="article:published_time" content="2026-06-031T00:00:00.000Z">
+  <meta property="article:author" content="Junkun Jiang, Ho Yin Au, Jingyu Xiang, Jie Chen">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="Symbolic Reasoning">
+  <meta property="article:tag" content="Labanotation">
+  <meta property="article:tag" content="Text-to-Motion Generation">
+  <meta property="article:tag" content="LLM-based Planning">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE"> -->
+  <!-- <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE"> -->
+  <meta name="twitter:title" content="LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference">
+  <meta name="twitter:description" content="LaMoGen leverages symbolic motion representation to enable LLMs to generate interpretable, linguistically aligned human motions from text.">
+  <!-- <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png"> -->
+  <meta name="twitter:image:alt" content="LaMoGen">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference">
+  <meta name="citation_author" content="Jiang, Junkun">
+  <meta name="citation_author" content="Au, Ho Yin">
+  <meta name="citation_author" content="Xiang, Jingyu">
+  <meta name="citation_author" content="Chen, Jie">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="CVPR">
+  <meta name="citation_pdf_url" content="https://https://jjkislele.github.io/pages/projects/lamogen/paper.pdf">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="https://asdryau.github.io/TransPhase/" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Deep Compositional Phase Diffusion for Long Motion Sequence Generation</h5>
+            <p>The proposed Compositional Phase Diffusion framework consistently generates semantically aligned multi-clip motion with smooth transitions.</p>
+            <span class="work-venue">NeurIPS 2025 Oral</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              <img src="static/images/icon.png" alt="LaMoGen" style="width: 100px; height: 100px; vertical-align: middle;">
+              LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://jjkislele.github.io/" target="_blank">Junkun Jiang</a>,</span>
+                <span class="author-block">
+                  <a href="https://github.com/asdryau" target="_blank">Ho Yin Au</a>,</span>
+                  <span class="author-block">
+                    <a href="https://www.linkedin.com/in/jyx-cs/" target="_blank">Jingyu Xiang</a>,</span>
+                  </span>
+                  <span class="author-block">
+                    <a href="https://jchenhkg.github.io/" target="_blank">Jie Chen</a><sup>*</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Hong Kong Baptist University<br>CVPR 2026</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Corresponding Author</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                    <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+
+                    <span class="link-block">
+                      <a href="https://jjkislele.github.io/pages/projects/lamogen/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://github.com/jjkislele/LaMoGen" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="column">
+      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+        <source src="static/videos/banner_video.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Existing methods often struggle to capture fine-grained semantics because of the black-box text-motion embedding. On the other hands, Labanotation encodes movement, into a sequence of symbols, to form a Laban score. People can read this score to reperform the corresponding movement. Pairing each symbol with a fixed text enables precise bidirectional conversion. Humans can alter movements by editing symbols, while LLMs modify actions by editing their fixed descriptions. Based on this idea, our LaMoGen can generate motions that faithfully follow the user instructional descriptions, with the precise step number, accurate sub-action order.
+      </h2>
+    </div>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Human motion is highly expressive and naturally aligned with language, yet prevailing methods relying heavily on joint text-motion embeddings struggle to synthesize temporally accurate, detailed motions and often lack explainability. To address these limitations, we introduce LabanLite, a motion representation developed by adapting and extending the Labanotation system. Unlike black-box text-motion embeddings, LabanLite encodes each atomic body-part action (e.g., a single left-foot step) as a discrete Laban symbol paired with a textual template. This abstraction decomposes complex motions into interpretable symbol sequences and body-part instructions, establishing a symbolic link between high-level language and low-level motion trajectories. Building on LabanLite, we present LaMoGen, a Text-to-LabanLite-to-Motion Generation framework that enables large language models (LLMs) to compose motion sequences through symbolic reasoning. The LLM interprets motion patterns, relates them to textual descriptions, and recombines symbols into executable plans, producing motions that are both interpretable and linguistically grounded. To support rigorous evaluation, we introduce a Labanotation-based benchmark with structured description--motion pairs and three metrics that jointly measure text--motion alignment across symbolic, temporal, and harmony dimensions. Experiments demonstrate that LaMoGen establishes a new baseline for both interpretability and controllability, outperforming prior methods on our benchmark and two public datasets. These results highlight the advantages of symbolic reasoning and agent-based design for language-driven motion synthesis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Framework -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">LLM-Guided Text-Labanotation-Motion Generation</h2>
+        <div class="column is-full">
+          <img src="static/images/Framework.png" alt="LaMoGen pipeline" loading="lazy"/>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Given a structured text description, methods based on text-motion joint embeddings often fail to generate semantically consistent motion. In contrast, our approach leverages symbolic motion representations, allowing for accurate motion generation. As each symbol is associated with one conceptual description, this design enables LLMs to compose symbolic motion via retrieval augmentation prompting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Framework -->
+
+<!-- Model -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Network Architecture</h2>
+        <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <img src="static/images/Architecture.png" alt="LaMoGen Architecture" loading="lazy"/>
+        </div></div>
+        <div class="content has-text-justified">
+          <p>
+            Overview of LaMoGen: (a) The Laban-motion Encoder-Decoder enables bidirectional conversion between motion and Laban instances. These instances are human-readable and LLM-editable, as each instance has a symbolic appearance and a conceptual description, stored in the Conceptual Description Database. (b) LLMs perform high-level symbolic planning via retrieval-augmented prompting, generating sequences of conceptual symbols. The Kinematic Detail Augmentor then enriches these sequences with details through autoregressive generation. Enriched symbol sequences are converted to instances, encoded as codes, and decoded into fine-grained motions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Model -->
+
+<!-- Youtube video -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3 has-text-centered">Supplementary Video</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/zczjQdAA4q4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{jiang2026lamogen,
+  title={LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference},
+  author={Jiang, Junkun and Au, Ho Yin and Xiang, Jingyu and Chen, Jie},
+  booktitle={2026 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages={1--1},
+  year={2026},
+  organization={IEEE}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
