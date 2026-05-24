@@ -654,6 +654,10 @@ code {
   .content.has-text-justified {
     font-size: 1rem;
   }
+
+  .scroll-to-top {
+    margin: 0 0 3rem 0;
+  }
 }
 
 @media screen and (max-width: 480px) {
