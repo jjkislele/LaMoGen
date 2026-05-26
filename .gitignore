@@ -3,7 +3,6 @@
 *.npz
 *__pycache__*
 assets/vis_*
-assets/*lbn*
 *.jpg
 *.png
 
@@ -17,7 +16,6 @@ weights/
 *.pkl
 test_files/
 
-assets/
 vis/
 .vscode/
 
