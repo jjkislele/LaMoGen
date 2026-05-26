@@ -20,9 +20,9 @@
 ## TODO List
 
 - [x] Provide a project page
-- [] Release data pre-processing code
-- [] Release model and dataloader code
-- [] Release checkpoints and training/testing data
+- [x] Release data pre-processing code
+- [ ] Release model and dataloader code
+- [ ] Release checkpoints and training/testing data
 
 ------------------------
 
