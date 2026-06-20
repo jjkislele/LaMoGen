@@ -1,0 +1,55 @@
+# Configuration for code generation training on HumanML3D
+
+exp_name: "exp_t2c_hml3d_ds1_fid"
+seed: 2333
+
+# Dataset paths
+data:
+  pkl_text_train: "assets/HML3D_lbn/train_text_embs.pkl"
+  pkl_lbn_train: "assets/HML3D_lbn/train_lbns_158.pkl"
+  pkl_ids_train: "assets/HML3D/train.pkl"
+  pkl_llm_train: "assets/HML3D_lbn/train_llm_codes.pkl"
+  pkl_text_val: "assets/HML3D_lbn/test_text_embs.pkl"
+  pkl_lbn_val: "assets/HML3D_lbn/test_lbns_158.pkl"
+  pkl_ids_val: "assets/HML3D/test.pkl"
+  pkl_llm_val: "assets/HML3D_lbn/test_llm_codes.pkl"
+  mean_path: "thirdparties/humanml/data/mean.npy"
+  std_path: "thirdparties/humanml/data/std.npy"
+  glove_path: "assets/Eval/glove"
+  num_workers: 32
+
+# Model
+model:
+  text_num: 1
+  code_num: 159
+  time_num: 200
+  downsample: 1
+  debug: false
+  pkeep: 0.5
+  decay_factor: 0.99
+  min_sampling_prob: 0.1
+  mask_ratio: null
+  fid_ckpt_path: "assets/Eval/t2m/text_mot_match/model/finest.tar"
+  fid_pose_dim: 263
+  decoder_ckpt_path: "exp_codec/exp_attn_l1_d158_fid_hml3d/version_0/checkpoints/ckpt-epoch=16666-fid-val_fid=0.084.ckpt"
+
+# Training
+training:
+  batch_size: 2
+  max_epochs: 5000
+  precision: "32"
+  check_val_every_n_epoch: 1
+  log_every_n_steps: 10
+  devices: [0, 1]
+  accumulate_grad_batches: 4
+
+# Checkpoint
+checkpoint:
+  save_last: true
+  every_n_train_steps: 1000
+  monitor: "val_fid"
+  filename: "ckpt-{epoch:04d}-{val_fid:.2f}"
+
+# Logging
+logging:
+  log_dir: "./exp_code_gen"

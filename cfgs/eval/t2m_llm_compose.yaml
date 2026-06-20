@@ -1,0 +1,16 @@
+# Configuration for LLM compose to motion generation
+
+seed: 2333
+
+# Dataset paths
+data:
+  pkl_text: "assets/HML3D_lbn/test_text_embs.pkl"
+  pkl_llm: "assets/HML3D_lbn/LLM/llm_qwen3-8b/batch_compose_lbns_158.pkl"
+  batch_size: 32
+
+# Model
+model:
+  generator_path: "exp_code_gen/exp_t2c_hml3d_ds1_fid/version_0/checkpoints/ckpt-epoch=0742-val_fid=0.23.ckpt"
+  decoder_path: "exp_codec/exp_attn_l1_d158_fid_hml3d/version_0/checkpoints/ckpt-epoch=16666-fid-val_fid=0.084.ckpt"
+  downsample_ratio: 1
+  max_frame_num: 200

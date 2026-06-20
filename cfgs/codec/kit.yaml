@@ -1,0 +1,45 @@
+# Configuration for KIT-ML dataset training
+
+exp_name: "exp_attn_l1_d158_fid_kit"
+seed: 2333
+
+# Dataset paths
+data:
+  pkl_feat_train: "assets/KIT/train.pkl"
+  pkl_lbn_train: "assets/KIT_lbn/train_lbns_158.pkl"
+  pkl_feat_val: "assets/KIT/test.pkl"
+  pkl_lbn_val: "assets/KIT_lbn/test_lbns_158.pkl"
+  mean_path: "thirdparties/kit/data/mean.npy"
+  std_path: "thirdparties/kit/data/std.npy"
+  glove_path: "assets/Eval/glove"
+  num_workers: 32
+
+# Model
+model:
+  dec_type: "attn"
+  loss_type: "l1"
+  pose_dim: 251  # KIT-ML pose dim
+  loss_vel: 0.5
+  fid_ckpt_path: "assets/Eval/kit/text_mot_match/model/finest.tar"
+  eval_pose_dim: 251
+
+# Training
+training:
+  batch_size: 512
+  max_epochs: 10000
+  precision: "32"
+  check_val_every_n_epoch: 1
+  log_every_n_steps: 10
+  devices: [0, 1]
+  accumulate_grad_batches: 4
+
+# Checkpoint
+checkpoint:
+  save_last: true
+  every_n_train_steps: 1000
+  monitor: "val_fid"
+  filename: "ckpt-{epoch:04d}-fid-{val_fid:.3f}"
+
+# Logging
+logging:
+  log_dir: "./exp_codec"

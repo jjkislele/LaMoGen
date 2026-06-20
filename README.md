@@ -21,8 +21,9 @@
 
 - [x] Provide a project page
 - [x] Release data pre-processing code
-- [ ] Release model and dataloader code
-- [ ] Release checkpoints and training/testing data
+- [x] Release model and dataloader code
+- [x] Release checkpoints and training/testing data
+- [ ] Release the LLM data
 
 ------------------------
 
@@ -50,6 +51,55 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.8 -c pytorch
 pip install -r requirements.txt
 ```
 
+### Data Preparation
+
+Detailed data preparation instructions are available in [scripts/README.md](scripts/README.md), which covers the full preprocessing pipeline from raw motion capture data to LabanLite symbol sequences. 
+For convenience, we also provide pre-processed data bundles ready for training and evaluation.
+
+------------------------
+
+## Training and Inference
+
+LaMoGen consists of two independently trained components:
+1. **Laban Codec** (Decoder): Reconstructs motion features from discrete Laban symbol sequences.
+2. **Laban Generator** (Code Generator): Predicts Laban symbol sequences conditioned on text embeddings.
+
+### Training
+
+#### 1. Train the Laban Codec
+
+To train the codec on the HumanML3D dataset:
+
+```bash
+python -m train.train_codec --cfg codec/hml3d.yaml
+```
+
+All configuration files are located under the [`cfgs/`](cfgs) directory. You can modify the YAML files to adjust hyperparameters, dataset paths, or training settings.
+
+#### 2. Train the Laban Generator
+
+Once the codec is trained, train the generator with:
+
+```bash
+python -m train.train_code_gen --cfg code_gen/hml3d.yaml
+```
+
+### Inference
+
+Pre-trained checkpoints are available [here](https://drive.google.com/file/d/1_m2u3Dx1_XztYI5LUHlqW2aq_DReeTfc/view?usp=sharing). Download and extract them to the project root, which will create `exp_codec/` and `exp_code_gen/` directories containing the decoder and generator weights respectively.
+
+To generate motion sequences from pre-composed Laban symbol sequences:
+
+```bash
+python -m sample.t2m_llm_compose --cfg eval/t2m_llm_compose.yaml
+```
+
+Generated motion features will be saved as `.npy` files in the corresponding checkpoint directory (e.g., `exp_code_gen/exp_pae_0710_t2c_hml3d_ds1_fid_mask03/version_0/checkpoints/ckpt-epoch=0742-val_fid=0.23_t2c/`).
+
+The LLM used for Laban composition is **Qwen3-8B**. You can compose your own Laban symbol sequences using the provided utility script [scripts\play_with_llm.py](scripts\play_with_llm.py).
+
+------------------------
+
 ## Special Thanks
 
 We would like to thank Ms. Wendy Chu Mang-Ching from the School of Dance, The Hong Kong Academy for Performing Arts, for the training and discussions on Labanotation.
@@ -59,8 +109,10 @@ We would like to thank Ms. Wendy Chu Mang-Ching from the School of Dance, The Ho
 - **[SMPL/SMPL-X](https://smpl.is.tue.mpg.de/)**: For human body modeling
 - **[BABEL-TEACH Dataset](https://github.com/atnikos/teach)**: For motion-text paired data
 - **[HumanML3D](https://github.com/EricGuo5513/HumanML3D)**: For motion-text paired data, data processing, and text-motion evaluation
+- **[priorMDM](https://github.com/priorMDM/priorMDM)**: For data processing and evaluators
 - **[PyTorch3D](https://github.com/facebookresearch/pytorch3d/blob/v0.3.0/pytorch3d/transforms/rotation_conversions.py)**: For rotation conversion utilities
 - **[LabanotationSuite](https://github.com/microsoft/LabanotationSuite)**: For the initial idea and basic code
+- **[TRAE Work](https://www.trae.ai/)**: For polishing/cleaning my redundant code with structure
 
 ## Citation
 
@@ -70,10 +122,9 @@ If you find this work helpful in your research, please consider leaving a star a
 @inproceedings{jiang2026lamogen,
   title={LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference},
   author={Jiang, Junkun and Au, Ho Yin and Xiang, Jingyu and Chen, Jie},
-  booktitle={2026 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  pages={1--1},
-  year={2026},
-  organization={IEEE}
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={9364--9373},
+  year={2026}
 }
 ```
 

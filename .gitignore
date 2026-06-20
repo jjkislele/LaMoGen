@@ -2,9 +2,6 @@
 *.npy
 *.npz
 *__pycache__*
-assets/vis_*
-*.jpg
-*.png
 
 exp/
 exp*/
@@ -21,3 +18,5 @@ vis/
 
 *.csv
 supplementary_materials/
+
+*.zip

@@ -29,6 +29,14 @@ This folder contains an adapter script that converts HumanML3D data into PKL fil
    python prepare_train_and_val_pkl.py
    ```
 
+5. Run the following script to download the T2M evaluator: 
+   
+   ```bash
+   cd assets
+   sh download_glove.sh
+   sh download_t2m_evaluators.sh
+   ```
+
 Upon completion, the following files will be generated under the LaMoGen repository:
 
 ```

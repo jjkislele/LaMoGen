@@ -69,12 +69,13 @@ Raw MoCap Data
 
 We provide pre-processed data for download. Due to the original motion data distribution restrictions, HumanML3D motion data must be processed by yourself. All files should be placed under `/assets`.
 
-| File Name                                | Description                                                | Link       |
-|------------------------------------------|------------------------------------------------------------|------------|
-| `KIT.zip`                                | Contains `train.pkl`, `test.pkl`, `mean.npy` and `std.npy` | [Google]() |
-| `KIT_lbn.zip`                            | Contains ...                                               | [Google]() |
-| `LOCO.zip`                               | Contains ...                                               | [Google]() |
-| `LOCO_lbn.zip`                           | Contains ...                                               | [Google]() |
+| File Name       | Description                                                                     | Link                                                                                         |
+|-----------------|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `HML3D_lbn.zip` | Contains `{split}_*.pkl`, similar to File Summary. **No Motion Data included.** | [Google](https://drive.google.com/file/d/1tC6a9GDS3g0-uiXKrw9oaTCddiP6ytk3/view?usp=sharing) |
+| `KIT.zip`       | Contains `train.pkl`, `test.pkl`, `mean.npy` and `std.npy`.                     | [Google](https://drive.google.com/file/d/1Wns7Kb06RQ34xE_28PXp2wFe7PnDGZar/view?usp=sharing) |
+| `KIT_lbn.zip`   | Contains `{split}_*.pkl`.                                                       | [Google](https://drive.google.com/file/d/1Lw_iJ2uANv7Le93xzvhJcpvitAAzsD4w/view?usp=sharing) |
+| `LOCO.zip`      | Contains `val.pkl`, `mean.npy` and `std.npy`. **Only for evaluation.**          | [Google](https://drive.google.com/file/d/1I--FEMZvd4OGOsJMTb2dY0Hyy_T8lwXk/view?usp=sharing) |
+| `LOCO_lbn.zip`  | Contains `{split}_*.pkl`. **Only for evaluation.**                              | [Google](https://drive.google.com/file/d/1URBtXa7PXgVrvrgvLGKwOiV8tU0PXt6V/view?usp=sharing) |
 
 ---
 
