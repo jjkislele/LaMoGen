@@ -11,7 +11,7 @@
 
 <details><summary><b>CLICK for full abstract</b></summary>
 
-> Human motion is highly expressive and naturally aligned with language, yet prevailing methods relying heavily on joint text-motion embeddings struggle to synthesize temporally accurate, detailed motions and often lack explainability. To address these limitations, we introduce LabanLite, a motion representation developed by adapting and extending the Labanotation system. Unlike black-box text–motion embeddings, LabanLite encodes each atomic body-part action (e.g., a single left-foot step) as a discrete Laban symbol paired with a textual template. This abstraction decomposes complex motions into interpretable symbol sequences and body-part instructions, establishing a symbolic link between high-level language and low-level motion trajectories. Building on LabanLite, we present LaMoGen, a Text-to-LabanLite-to-Motion Generation framework that enables large language models (LLMs) to compose motion sequences through symbolic reasoning. The LLM interprets motion patterns, relates them to textual descriptions, and recombines symbols into executable plans, producing motions that are both interpretable and linguistically grounded. To support rigorous evaluation, we introduce a Labanotation-based benchmark with structured description–motion pairs and three metrics that jointly measure text–motion alignment across symbolic, temporal, and harmony dimensions. Experiments demonstrate that LaMoGen establishes a new baseline for both interpretability and controllability, outperforming prior methods on our benchmark and two public datasets. These results highlight the advantages of symbolic reasoning and agent-based design for language-driven motion synthesis. 
+> Human motion is highly expressive and naturally aligned with language, yet prevailing methods relying heavily on joint text-motion embeddings struggle to synthesize temporally accurate, detailed motions and often lack explainability. To address these limitations, we introduce LabanLite, a motion representation developed by adapting and extending the Labanotation system. Unlike black-box text–motion embeddings, LabanLite encodes each atomic body-part action (e.g., a single left-foot step) as a discrete Laban symbol paired with a textual template. This abstraction decomposes complex motions into interpretable symbol sequences and body-part instructions, establishing a symbolic link between high-level language and low-level motion trajectories. Building on LabanLite, we present LaMoGen, a Text-to-LabanLite-to-Motion Generation framework that enables large language models (LLMs) to compose motion sequences through symbolic reasoning. The LLM interprets motion patterns, relates them to textual descriptions, and recombines symbols into executable plans, producing motions that are both interpretable and linguistically grounded. To support rigorous evaluation, we introduce a Labanotation-based benchmark with structured description–motion pairs and three metrics that jointly measure text–motion alignment across symbolic, temporal, and harmony dimensions. Experiments demonstrate that LaMoGen establishes a new baseline for both interpretability and controllability, outperforming prior methods on our benchmark and two public datasets. These results highlight the advantages of symbolic reasoning and agent-based design for language-driven motion synthesis.
 </details>
 
 
@@ -53,7 +53,7 @@ pip install -r requirements.txt
 
 ### Data Preparation
 
-Detailed data preparation instructions are available in [scripts/README.md](scripts/README.md), which covers the full preprocessing pipeline from raw motion capture data to LabanLite symbol sequences. 
+Detailed data preparation instructions are available in [scripts/README.md](scripts/README.md), which covers the full preprocessing pipeline from raw motion capture data to LabanLite symbol sequences.
 For convenience, we also provide pre-processed data bundles ready for training and evaluation.
 
 ------------------------
@@ -106,13 +106,14 @@ We would like to thank Ms. Wendy Chu Mang-Ching from the School of Dance, The Ho
 
 ## Acknowledgments
 
-- **[SMPL/SMPL-X](https://smpl.is.tue.mpg.de/)**: For human body modeling
-- **[BABEL-TEACH Dataset](https://github.com/atnikos/teach)**: For motion-text paired data
-- **[HumanML3D](https://github.com/EricGuo5513/HumanML3D)**: For motion-text paired data, data processing, and text-motion evaluation
-- **[priorMDM](https://github.com/priorMDM/priorMDM)**: For data processing and evaluators
-- **[PyTorch3D](https://github.com/facebookresearch/pytorch3d/blob/v0.3.0/pytorch3d/transforms/rotation_conversions.py)**: For rotation conversion utilities
-- **[LabanotationSuite](https://github.com/microsoft/LabanotationSuite)**: For the initial idea and basic code
-- **[TRAE Work](https://www.trae.ai/)**: For polishing/cleaning my redundant code with structure
+- **[SMPL/SMPL-X](https://smpl.is.tue.mpg.de/)**: For human body modeling.
+- **[BABEL-TEACH Dataset](https://github.com/atnikos/teach)**: For motion-text paired data.
+- **[HumanML3D](https://github.com/EricGuo5513/HumanML3D)**: For motion-text paired data, data processing, and text-motion evaluation.
+- **[priorMDM](https://github.com/priorMDM/priorMDM)**: For data processing and evaluators.
+- **[ReMoDiffuse](https://github.com/MotrixLab/ReMoDiffuse): For clean and clear visualization scripts and model zoo.
+- **[PyTorch3D](https://github.com/facebookresearch/pytorch3d/blob/v0.3.0/pytorch3d/transforms/rotation_conversions.py)**: For rotation conversion utilities.
+- **[LabanotationSuite](https://github.com/microsoft/LabanotationSuite)**: For the initial idea and basic code.
+- **[TRAE Work](https://www.trae.ai/)**: For polishing/cleaning my redundant code with structure.
 
 ## Citation
 
