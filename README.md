@@ -110,7 +110,7 @@ We would like to thank Ms. Wendy Chu Mang-Ching from the School of Dance, The Ho
 - **[BABEL-TEACH Dataset](https://github.com/atnikos/teach)**: For motion-text paired data.
 - **[HumanML3D](https://github.com/EricGuo5513/HumanML3D)**: For motion-text paired data, data processing, and text-motion evaluation.
 - **[priorMDM](https://github.com/priorMDM/priorMDM)**: For data processing and evaluators.
-- **[ReMoDiffuse](https://github.com/MotrixLab/ReMoDiffuse): For clean and clear visualization scripts and model zoo.
+- **[ReMoDiffuse](https://github.com/MotrixLab/ReMoDiffuse)**: For clean and clear visualization scripts and model zoo.
 - **[PyTorch3D](https://github.com/facebookresearch/pytorch3d/blob/v0.3.0/pytorch3d/transforms/rotation_conversions.py)**: For rotation conversion utilities.
 - **[LabanotationSuite](https://github.com/microsoft/LabanotationSuite)**: For the initial idea and basic code.
 - **[TRAE Work](https://www.trae.ai/)**: For polishing/cleaning my redundant code with structure.
